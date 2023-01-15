@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/select/all', 'ProductController@selectAll');
+Route::get('/insert/{name}/{price}', 'ProductController@insertData');
+Route::get('/update/{id}/{name}/{price}', 'ProductController@updateData');
+Route::get('/delete/{id}', 'ProductController@deleteData');
