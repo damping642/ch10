@@ -1,0 +1,24 @@
+cmd>laravel new ch10
+cmd>cd ch10
+cmd>composer update
+cmd>cp .env.example .env
+cmd>php artisan key:generate
+
+至phpMyadmin建立ch10資料庫
+
+cmd>del .\database\migrations\*
+cmd>php artisan make:model Product --migration
+
+修改./app/Product.php
+class Product extends Model{
+  protect $fillable = ['name', 'price'];
+}
+
+到這個檔案app/Http/Providers/RouteServiceProvider.php
+將下列這一行註解取消
+protected $namespace = 'App\Http\Controllers';
+
+到這個檔案
+app/Http/Providers/RouteServiceProvider.php
+
+cmd>php artisan migrate
